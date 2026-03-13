@@ -1,0 +1,74 @@
+:root {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #f8fafc;
+  --accent: #3b82f6;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+.app-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+}
+.screen {
+  display: none;
+}
+.screen.active {
+  display: block;
+}
+
+.category-grid,
+.options-grid {
+  display: grid;
+  gap: 15px;
+  margin: 20px 0;
+}
+.category-grid {
+  grid-template-columns: 1fr 1fr;
+}
+.cat-card,
+.option-btn {
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  color: white;
+  transition: 0.3s;
+}
+.cat-card.selected {
+  border-color: var(--accent);
+}
+.option-btn {
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+}
+.option-btn:hover {
+  background: #334155;
+}
+
+#startBtn,
+#nextBtn {
+  width: 100%;
+  padding: 15px;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+#startBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
