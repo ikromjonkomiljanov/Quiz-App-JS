@@ -5,12 +5,12 @@ const QUESTIONS = {
       opts: ["<h6>", "<h1>", "<div>"],
       ans: 1,
     },
-    { q: "Rasm qo'shish tegi?", opts: ["<pic>", "<img>", "<image>"], ans: 1 },
+    { q: "Rasm qo'shish tegi?", opts: ["<video>", "<img>", "<image>"], ans: 1 },
   ],
   js: [
     {
       q: "O'zgaruvchi e'lon qilish kalit so'zi?",
-      opts: ["var", "int", "varchat"],
+      opts: ["var", "let & const", "npm"],
       ans: 0,
     },
     {
@@ -66,4 +66,50 @@ startBtn.addEventListener("click", () => {
   currentIdx = 0;
   score = 0;
   showScreen("quizScreen");
+  renderQuestion();
+});
+
+function renderQuestion() {
+  const q = quizQuestions[currentIdx];
+  document.getElementById("qText").textContent = q.q;
+  document.getElementById("qCounter").textContent =
+    `Savol ${currentIdx + 1}/${quizQuestions.length}`;
+
+  const grid = document.getElementById("optionsGrid");
+  grid.innerHTML = "";
+  nextBtn.style.display = "none";
+
+  q.opts.forEach((opt, index) => {
+    const btn = document.createElement("button");
+    btn.className = "option-btn";
+    btn.textContent = opt;
+    btn.onclick = () => checkAnswer(index);
+    grid.appendChild(btn);
+  });
+}
+
+function checkAnswer(idx) {
+  const q = quizQuestions[currentIdx];
+  const btns = document.querySelectorAll(".option-btn");
+
+  if (idx === q.ans) {
+    score++;
+    btns[idx].style.background = "#22c55e";
+  } else {
+    btns[idx].style.background = "#ef4444";
+    btns[q.ans].style.background = "#22c55e";
+  }
+
+  btns.forEach((b) => (b.disabled = true));
+  nextBtn.style.display = "block";
+}
+
+nextBtn.addEventListener("click", () => {
+  currentIdx++;
+  if (currentIdx < quizQuestions.length) {
+    renderQuestion();
+  } else {
+    alert("O'yin tugadi! Ballingiz: " + score);
+    showScreen("homeScreen");
+  }
 });
