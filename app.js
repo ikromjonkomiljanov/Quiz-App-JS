@@ -6,23 +6,43 @@ const QUESTIONS = {
       ans: 1,
     },
     { q: "Rasm qo'shish tegi?", opts: ["<video>", "<img>", "<image>"], ans: 1 },
+    {
+      q: "HTML nima uchun ishlatiladi?",
+      opts: ["Ma'lumot bazasi", "Stil berish", "Veb sahifa tuzish"],
+      ans: 2,
+    },
   ],
   js: [
     {
       q: "O'zgaruvchi e'lon qilish kalit so'zi?",
-      opts: ["var", "let & const", "npm"],
-      ans: 0,
+      opts: ["cls", "let & const", "npm"],
+      ans: 1,
     },
     {
       q: "typeof null natijasi?",
       opts: ["null", "object", "undefined"],
       ans: 1,
     },
+    {
+      q: "JavaScript nima uchun ishlatiladi?",
+      opts: ["Veb sahifa tuzish", "Ma'lumot bazasi", "Interaktivlik qo'shish"],
+      ans: 2,
+    },
   ],
   general: [
     {
       q: "GitHub nima?",
       opts: ["Dizayn", "Versiya nazorati", "Brauzer"],
+      ans: 1,
+    },
+    {
+      q: "CSS nima uchun ishlatiladi?",
+      opts: ["Ma'lumot bazasi", "Stil berish", "Server"],
+      ans: 1,
+    },
+    {
+      q: "HTTP protokoli nima uchun ishlatiladi?",
+      opts: ["Veb sahifa tuzish", "Ma'lumot uzatish", "Dasturlash"],
       ans: 1,
     },
   ],
